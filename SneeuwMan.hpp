@@ -24,11 +24,17 @@ public:
 	//constructor
 	SneeuwMan( int positionX, int positionY );
 
-	//beweeg de sneeuwman in de richting "direcion", negatief getal is links, positief is rechts
-	void move( int direction );
-
 	//tekent een sneeuwman
 	void draw();
+
+	//beweeg de sneeuwman in de richting "direcion", negatief getal is links, positief is rechts
+	void moveSide( int direction );
+
+	//beweeg de sneeuwman omhoog of omlaag
+	void moveUpDown ( int updown );
+
+	int getY();
+
 };
 
 

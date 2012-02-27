@@ -6,6 +6,7 @@
  */
 
 #include "SneeuwLandschap.hpp"
+#include <conprint.h>
 
 
 //globale variabelen voor breedte en hoogte van het scherm
@@ -25,7 +26,7 @@ SneeuwLandschap::SneeuwLandschap()
 	this->sneeuwHoogte = 30;
 
 	//maak een nieuwe sneeuwman
-	this->sneeuwMan = new SneeuwMan( screenWidth / 2, screenHeight - this->sneeuwHoogte );
+	this->sneeuwMan = new SneeuwMan( screenWidth / 2, screenHeight - this->sneeuwHoogte - 50 );
 }
 
 
@@ -40,13 +41,20 @@ void SneeuwLandschap::run( MAEvent event )
 
 		//kijk voor linkertoets
 		if( key == MAKB_LEFT )
-			this->sneeuwMan->move( -6 );	//beweeg sneeuwman -6 pixels
+			this->sneeuwMan->moveSide( -3 );	//beweeg sneeuwman -3 pixels
 
 		//kijk voor rechtertoets
 		if( key == MAKB_RIGHT )
-			this->sneeuwMan->move( 6 );		//beweeg sneeuwman 6 pixels
-	}
+			this->sneeuwMan->moveSide( 3 );		//beweeg sneeuwman 3 pixels
 
+		//kijk voor toets omhoog
+		if( key == MAKB_UP && this->sneeuwMan->getY() > screenHeight - this->sneeuwHoogte - 50)
+			this->sneeuwMan->moveUpDown( -3 );	//beweeg sneeuwman -3 pixels
+
+		//kijk voor toets omlaag
+		if( key == MAKB_DOWN )
+			this->sneeuwMan->moveUpDown( 3 );		//beweeg sneeuwman 3 pixels
+	}
 
 	//TODO: voeg een sneeuwvlok toe
 
@@ -65,7 +73,8 @@ void SneeuwLandschap::draw()
 	maSetColor( 0xffffff );
 	maFillRect( 0, screenHeight - this->sneeuwHoogte, screenWidth, this->sneeuwHoogte );
 
-	//TODO: teken de sneeuwman
+	//teken de sneeuwman
+	sneeuwMan->draw();
 
 	//TODO: teken alle sneeuwvlokken
 }
