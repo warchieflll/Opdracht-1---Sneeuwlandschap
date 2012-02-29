@@ -2,7 +2,7 @@
  * SneeuwMan.hpp
  *
  *  Created on: 8 feb. 2012
- *      Author: acer
+ *      Author: Bjorn Hoogeveen
  */
 
 #ifndef SNEEUWMAN_HPP_
@@ -33,9 +33,8 @@ public:
 	//beweeg de sneeuwman omhoog of omlaag
 	void moveUpDown ( int updown );
 
+	// haal y positie op voor check zwevende sneeuwman
 	int getY();
-
 };
-
 
 #endif /* SNEEUWMAN_HPP_ */

@@ -2,7 +2,7 @@
  * SneeuwVlok.hpp
  *
  *  Created on: 8 feb. 2012
- *      Author: acer
+ *      Author: Bjorn Hoogeveen
  */
 
 #ifndef SNEEUWVLOK_HPP_
@@ -20,14 +20,13 @@ private:
 	int positionX;	//sneeuwvlok heeft x positie
 	int positionY;	//sneeuwvlok heeft y positie
 	int size;		//sneeuwvlok heeft (een willekeurige) grootte
-
-	bool dead;		//als dead == true, wordt de sneeuwvlok verwijdert
+	bool isdood;
 
 public:
-	SneeuwVlok( int positionX, int positionY );	//constructor
+	SneeuwVlok( int positionX, int positionY, int size, bool isDead);	//constructor
+	void fall( int groundLevel);				// functie die ypositie veranderd.
 	void draw();								//teken functie die een sneeuwvlok tekent
-	void fall( int groundLevel );				//functie die de y positie verandert
-	bool isDead();								//functie die de sneeuwvlok dead status teruggeeft
+	bool isDead(int grond);						//functie die de sneeuwvlok dead status teruggeeft
 };
 
 

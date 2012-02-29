@@ -1,10 +1,13 @@
+/*
+ * Main.cpp
+ *
+ *  Created on: 8 feb. 2012
+ *      Author: Bjorn Hoogeveen
+ */
+
 #include <ma.h>
 #include <conprint.h>
-
-
-//include sneeuwlandschap om te instantiëren en gebruiken
 #include "SneeuwLandschap.hpp"
-
 
 //de main functie
 extern "C" int MAMain()
@@ -17,8 +20,8 @@ extern "C" int MAMain()
 	//oneindige loop laat onze app in werking
 	while (TRUE)
 	{
-		//run met 1 frame per 100 ms
-		maWait(25);
+		//run met 1 frame per 40 ms
+		maWait(40);
 
 		//kijk of er events hebben plaatsgevonden, sla die info op in MAEvent event.
 		maGetEvent(&event);
@@ -26,7 +29,7 @@ extern "C" int MAMain()
 		//als een event de app wil sluiten...
 		if (EVENT_TYPE_CLOSE == event.type)
 		{
-			// Exit while loop.
+			// spring uit de loop
 			break;
 		}
 
